@@ -42,3 +42,39 @@ curl -X POST https://image-processor-xxxxx-uc.a.run.app/process-image \
     "position": "bottom_right"
 }'
 ```
+
+### Basic SSH
+```
+ssh USERNAME@PUBLIC_IP
+
+```
+
+Here's how we get python environment working without sudo access and installing pythong:
+### Flask App Setup on Cloudways
+```bash
+# 1. Install virtualenv locally (without sudo)
+pip3 install --user virtualenv
+
+# 2. Create virtual environment using the local virtualenv
+~/.local/bin/virtualenv venv
+
+# 3. Activate the virtual environment
+source venv/bin/activate
+
+# 4. Install Flask
+pip install flask
+
+# 5. Create a basic Flask app (app.py)
+cat > app.py << 'EOL'
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/health')
+def health():
+    return jsonify({"status": "healthy"})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
+EOL
+```

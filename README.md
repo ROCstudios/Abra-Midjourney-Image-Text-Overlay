@@ -43,6 +43,14 @@ curl -X POST https://image-processor-xxxxx-uc.a.run.app/process-image \
 }'
 ```
 
+### Notes on Cloudways
+
+Here how we can access the project through UI
+
+```
+https://unified.cloudways.com/apps/5231913/deployment
+```
+
 ### Basic SSH
 ```
 ssh USERNAME@PUBLIC_IP
